@@ -22,6 +22,45 @@
 
     <h2 style="color:red">Antworten:</h2>
 
-    <!-- Hier eure Antworten rendern -->
+    <h2>1. Mitarbeiterliste</h2>
+    <ul>
+      {% for employee in employees %}
+        <li>
+          <b>{{ employee.name }}</b> :
+          Abteilung: {{ employee.department }}
+          <b>||</b> Gehalt: {{ employee.salary }} € 
+        </li>
+      {% endfor %}
+    </ul>
+
+    <br>
+    <h2>2. Mitarbeiter, die mehr als 3000 € im Monat verdienen:</h2>
+    <ul>
+      {% for employee in employees_expensive %}
+        <li>
+          <b>{{ employee.name }}</b>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <br>
+    <h2>3. Anzahl Mitarbeiter, die 5000 € oder mehr im Monat verdienen:</h2>
+
+    <b>{{employees_most_expensive_count}}</b>
+
+    <h2>4. Durchschnittsgehalt im Sales-Team:</h2>
+
+    <b>{{average_sales_salary|floatformat:2}} € </b>
+
+    <h2>5. Mitarbeiter, die vor dem 1. Januar 2022 eingestellt wurden und nicht im HR-Team sind:</h2>
+
+    <ul>
+      {% for employee in employees_hired_january %}
+        <li>
+          <b>{{ employee.name }}</b>
+        </li>
+      {% endfor %}
+    </ul>
+
   </body>
 </html>
